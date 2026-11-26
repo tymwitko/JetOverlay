@@ -2,6 +2,8 @@
 
 package com.yazan.jetoverlay.api
 
+import android.app.ActionBar
+import android.view.WindowManager
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
@@ -22,6 +24,8 @@ data class OverlayConfig(
     val id: String,
     val initialX: Int = 0,
     val initialY: Int = 0,
+    val widthStrategy: Int? = WindowManager.LayoutParams.WRAP_CONTENT,
+    val heightStrategy: Int? = WindowManager.LayoutParams.WRAP_CONTENT,
     val width: Dp = Dp.Unspecified,
     val height: Dp = Dp.Unspecified
 )

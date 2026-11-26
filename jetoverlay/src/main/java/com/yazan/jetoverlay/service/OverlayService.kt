@@ -1,5 +1,7 @@
 package com.yazan.jetoverlay.service
 
+import android.R.attr.data
+import android.R.attr.height
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -43,7 +45,7 @@ class OverlayService : Service() {
     // The single "Trash Can" view shared by all overlays
     private var dismissView: DismissTargetView? = null
 
-    // Track whether the "Trash Can" is currently currently in a "Hovered" state
+    // Track whether the "Trash Can" is currently in a "Hovered" state
     private var isDismissHovering = false
 
     override fun onBind(intent: Intent?): IBinder? = null
@@ -110,17 +112,21 @@ class OverlayService : Service() {
 
         val viewWrapper = OverlayViewWrapper(this)
 
-        val params = WindowManager.LayoutParams(
-            data.config.width.takeIf { it.value > 0 }?.value?.toInt() ?: WindowManager.LayoutParams.WRAP_CONTENT,
-            data.config.height.takeIf { it.value > 0 }?.value?.toInt() ?: WindowManager.LayoutParams.WRAP_CONTENT,
-            WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
-            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
-                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-            PixelFormat.TRANSLUCENT
-        ).apply {
-            gravity = Gravity.TOP or Gravity.START
-            x = data.config.initialX
-            y = data.config.initialY
+        val params = with(data.config) {
+            WindowManager.LayoutParams(
+                widthStrategy ?: width.takeIf { it.value > 0 }?.value?.toInt()
+                ?: WindowManager.LayoutParams.WRAP_CONTENT,
+                heightStrategy ?: height.takeIf { it.value > 0 }?.value?.toInt()
+                ?: WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
+                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
+                  WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                PixelFormat.TRANSLUCENT
+            ).apply {
+                gravity = Gravity.TOP or Gravity.START
+                x = initialX
+                y = initialY
+            }
         }
 
         viewWrapper.setContent {
