@@ -12,7 +12,7 @@
         android:theme="@style/Theme.Jetoverlay">
 
         <activity
-            android:name="com.yazan.jetoverlay.MainActivity"
+            android:name="com.tymwitko.jetoverlay.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Jetoverlay">
             <intent-filter>

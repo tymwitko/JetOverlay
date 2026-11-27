@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.yazan.jetoverlay"
+    namespace = "com.tymwitko.jetoverlay"
     compileSdk = 36
 
     defaultConfig {

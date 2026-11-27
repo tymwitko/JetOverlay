@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.yazan.jetoverlay.app"
+    namespace = "com.tymwitko.jetoverlay.app"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.yazan.jetoverlay"
+        applicationId = "com.tymwitko.jetoverlay"
         minSdk = 26
         targetSdk = 36
 

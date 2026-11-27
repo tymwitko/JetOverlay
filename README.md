@@ -1,6 +1,5 @@
 # JetOverlay 🚀
 
-[![](https://jitpack.io/v/YazanAesmael/JetOverlay.svg)](https://jitpack.io/#YazanAesmael/JetOverlay)
 ![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
 ![API](https://img.shields.io/badge/API-26%2B-brightgreen.svg)
 
@@ -19,32 +18,6 @@
 ## 📱 Demo
 
 https://github.com/user-attachments/assets/cf25213e-fc61-42c8-bfa7-6d7de557eb32
-
-## 📦 Installation
-
-Add the repository to your root `settings.gradle.kts`:
-
-```kotlin
-dependencyResolutionManagement {
-    repositories {
-        google()
-        mavenCentral()
-        maven { url = uri("[https://jitpack.io](https://jitpack.io)") }
-    }
-}
-
-```
-
-Add the dependency to your app's `build.gradle.kts`:
-
-```kotlin
-dependencies {
-    implementation("com.github.YazanAesmael:JetOverlay:1.1.0")
-}
-
-```
-
----
 
 ## 🚀 Quick Start
 
@@ -85,32 +58,6 @@ fun MyOverlayContent(id: String, payload: Any?) {
 }
 
 ```
-
-### 2. Check Permissions & Show Overlay
-
-In your Activity or ViewModel, check for permission and trigger the overlay.
-
-```kotlin
-val context = LocalContext.current
-
-Button(onClick = {
-    if (OverlaySdk.checkPermission(context)) {
-        // Permission granted, show the overlay
-        OverlaySdk.show(
-            id = "chat_head_1",
-            config = OverlayConfig(initialX = 100, initialY = 200)
-        )
-    } else {
-        // Request permission
-        OverlaySdk.requestPermission(context)
-    }
-}) {
-    Text("Show Overlay")
-}
-
-```
-
----
 
 ## 🎨 Detailed Customization
 
@@ -185,32 +132,9 @@ Contributions are welcome!
 
 Join the conversation! We want to hear from you.
 
-* **💬 [Discussions](https://github.com/YazanAesmael/JetOverlay/discussions):** Ask questions, share ideas, or show off what you've built.
-* **🐛 [Issues](https://github.com/YazanAesmael/JetOverlay/issues):** Report bugs or request specific features.
-* **📰 [Medium](https://medium.com/@yazanaesmael/stop-fighting-windowmanager-build-android-floating-windows-with-jetpack-compose-c9ebfaf4afc2):** Build Android Floating Windows with Jetpack Compose.
+* **💬 [Discussions](https://github.com/tymwitko/JetOverlay/discussions):** Ask questions, share ideas, or show off what you've built.
+* **🐛 [Issues](https://github.com/tymwitko/JetOverlay/issues):** Report bugs or request specific features.
 * **⭐ Star this repo:** It helps the project grow!
 
-
----
-
-## 📄 License
-
-Distributed under the Apache 2.0 License. See `LICENSE` for more information.
-
-```
-Copyright 2026 Yazan Aesmael
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```
 
 ---
